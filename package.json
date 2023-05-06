@@ -1,0 +1,24 @@
+{
+  "name": "eslint-config-eskiu",
+  "version": "0.1.0",
+  "description": "A custom ESLint config. Currently available: /ts-react",
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": ">= 5.56.0",
+    "@typescript-eslint/parser": ">= 5.56.0",
+    "eslint": ">= 8.36.0",
+    "eslint-config-prettier": ">= 8.8.0",
+    "eslint-plugin-prettier": ">= 4.2.1",
+    "eslint-plugin-react": ">= 7.32.2",
+    "prettier": ">= 2.8.8"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sqmasep/eslint-config-eskiu"
+  },
+  "author": "sqmasep",
+  "license": "GPL-3.0"
+}
