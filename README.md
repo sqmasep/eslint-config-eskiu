@@ -106,19 +106,19 @@ To install the config, run:
 #### npm
 
 ```bash
-npm i eslint-config-eskiu @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-react prettier -D
+npm i eslint-config-eskiu -D
 ```
 
 #### yarn
 
 ```bash
-yarn add eslint-config-eskiu @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-react prettier -D
+yarn add eslint-config-eskiu -D
 ```
 
 #### pnpm
 
 ```bash
-pnpm add eslint-config-eskiu @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-react prettier -D
+pnpm add eslint-config-eskiu -D
 ```
 
 ### In your .eslintrc.cjs:
@@ -150,3 +150,8 @@ module.exports = {
 ## Note
 
 I'm only getting started with ESLint, there are probably rules i havent set yet but it'll be updated whenever i need. I'll take time to update that readme as well with more readable list of rules.
+
+## TODO
+
+- [] https://www.npmjs.com/package/eslint-plugin-mui-path-imports
+- [] https://github.com/jsx-eslint/eslint-plugin-react

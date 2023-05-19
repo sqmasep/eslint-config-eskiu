@@ -9,6 +9,7 @@
     "eslint-config-prettier": ">= 8.8.0",
     "eslint-plugin-prettier": ">= 4.2.1",
     "eslint-plugin-react": ">= 7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": ">= 2.8.8"
   },
   "keywords": [
@@ -20,5 +21,9 @@
     "url": "https://github.com/sqmasep/eslint-config-eskiu"
   },
   "author": "sqmasep",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/eslint": "^8.37.0",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
 }
