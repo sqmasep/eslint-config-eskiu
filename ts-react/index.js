@@ -4,213 +4,26 @@ const booleanPrefixes = ["is", "should", "has", "can", "did", "will"];
 
 /** @type {import("eslint").Linter.Config} */
 const config = {
-  overrides: [
-    {
-      extends: [
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-      ],
-      files: ["*.ts", "*.tsx"],
-      parserOptions: {
-        tsConfigRootDir: __dirname,
-      },
-    },
-  ],
-  parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint", "prettier", "react"],
+  plugins: ["react"],
   extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
+    // eslint-ts custom config
+    "../ts",
   ],
   rules: {
-    // Typescript rules
-    "@typescript-eslint/array-type": "error",
-    "@typescript-eslint/ban-tslint-comment": "error",
-    "@typescript-eslint/consistent-generic-constructors": [
-      "error",
-      "constructor",
-    ],
-    "@typescript-eslint/consistent-indexed-object-style": ["error", "record"],
-    "@typescript-eslint/consistent-type-assertions": [
-      "error",
-      { assertionStyle: "as", objectLiteralTypeAssertions: "never" },
-    ],
-    // TODO "@typescript-eslint/explicit-function-return-type"
-    "@typescript-eslint/method-signature-style": ["error", "property"],
-    "@typescript-eslint/no-base-to-string": "error",
-    "@typescript-eslint/no-duplicate-type-constituents": "error",
-    "@typescript-eslint/no-extraneous-class": "error",
-    "@typescript-eslint/no-invalid-void-type": "error",
-    "@typescript-eslint/no-meaningless-void-operator": "error",
-    "@typescript-eslint/no-redundant-type-constituents": "error",
-    // TODO "@typescript-eslint/no-type-alias"
-    "@typescript-eslint/no-unnecessary-qualifier": "error", // for `namespace` since enums are forbidden
-    "@typescript-eslint/no-unsafe-declaration-merging": "error",
-    "@typescript-eslint/prefer-for-of": "error",
-    "@typescript-eslint/prefer-function-type": "error",
-    "@typescript-eslint/prefer-includes": "error",
-    "@typescript-eslint/prefer-nullish-coalescing": "error",
-    "@typescript-eslint/prefer-optional-chain": "error",
-    // TODO "@typescript-eslint/prefer-reduce-type-parameter"
-    "@typescript-eslint/prefer-return-this-type": "error",
-    "@typescript-eslint/prefer-string-starts-ends-with": "error",
-    "@typescript-eslint/prefer-ts-expect-error": "error",
-    "@typescript-eslint/promise-function-async": "error",
-    "@typescript-eslint/require-array-sort-compare": "error",
-    "@typescript-eslint/strict-boolean-expressions": "error",
-    "@typescript-eslint/switch-exhaustiveness-check": "error",
-
-    // Extension rules
-    "default-param-last": "off",
-    "@typescript-eslint/default-param-last": "error",
-    "dot-notation": "off",
-    "@typescript-eslint/dot-notation": "error",
-    "no-dupe-class-members": "off",
-    "@typescript-eslint/no-dupe-class-members": "error",
-    "no-invalid-this": "off",
-    "@typescript-eslint/no-invalid-this": "error",
-    "no-loop-func": "off",
-    "@typescript-eslint/no-loop-func": "error",
-    // TODO need deeper config
-    // "no-magic-numbers": "off",
-    // "@typescript-eslint/no-magic-numbers": "error",
-    "no-redeclare": "off",
-    "@typescript-eslint/no-redeclare": "error",
-    "no-restricted-imports": "off",
-    "@typescript-eslint/no-restricted-imports": "error",
-    // TODO "@typescript-eslint/no-shadow"
-    "no-throw-literal": "off",
-    "@typescript-eslint/no-throw-literal": "error",
-    "no-unused-expressions": "off",
-    "@typescript-eslint/no-unused-expressions": "error",
-    // Off: Using a function in another function may happen: to keep a better structure, i turned it off.
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": "off",
-    "no-useless-constructor": "off",
-    "@typescript-eslint/no-useless-constructor": "error",
-    "no-return-await": "off",
-    "@typescript-eslint/return-await": "error",
-
-    // TODO Not 100% about this one, needs deeper params config
-    // TODO disabled temporarily.
-    // "@typescript-eslint/prefer-readonly-parameter-types": [
-    //   "error",
-    //   {
-    //     // Better, but not perfect yet i guess
-    //     ignoreInferredTypes: true,
-    //   },
-    // ],
-
-    // import / export
-    "@typescript-eslint/no-import-type-side-effects": "error",
-    "@typescript-eslint/no-useless-empty-export": "error",
-    "@typescript-eslint/consistent-type-imports": "error",
-    "@typescript-eslint/consistent-type-exports": "error",
-    "@typescript-eslint/no-require-imports": "error",
-
-    "@typescript-eslint/non-nullable-type-assertion-style": "error",
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
-    "@typescript-eslint/no-confusing-non-null-assertion": "error",
-    "@typescript-eslint/no-confusing-void-expression": [
-      "error",
-      {
-        ignoreArrowShorthand: true,
-      },
-    ],
-
-    "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/no-unsafe-member-access": "error",
-    "@typescript-eslint/no-unsafe-return": "error",
-
-    "@typescript-eslint/no-dynamic-delete": "error",
-    "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "error",
-    "@typescript-eslint/no-non-null-assertion": "error",
-    "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
-    "@typescript-eslint/no-unnecessary-condition": "error",
-
-    // Dangerous if default type is changed so i turned it off
-    "@typescript-eslint/no-unnecessary-type-arguments": "off",
-
-    "require-await": "off",
-    "@typescript-eslint/require-await": "error",
-    "@typescript-eslint/prefer-ts-expect-error": "error",
-
-    // TODO Getting deep into naming convention to be more strict on every type
-    "@typescript-eslint/naming-convention": [
-      "error",
-      {
-        selector: "variable",
-        modifiers: ["destructured"],
-        format: null,
-      },
-      {
-        selector: "variable",
-        types: ["boolean"],
-        format: ["PascalCase"],
-        prefix: booleanPrefixes,
-        leadingUnderscore: "allow",
-        trailingUnderscore: "forbid",
-      },
-      {
-        selector: "typeParameter",
-        format: ["PascalCase"],
-        prefix: ["T"],
-        leadingUnderscore: "forbid",
-        trailingUnderscore: "forbid",
-      },
-      {
-        selector: "interface",
-        format: ["PascalCase"],
-        leadingUnderscore: "forbid",
-        trailingUnderscore: "forbid",
-        custom: {
-          regex: "^I[A-Z]",
-          match: false,
-        },
-      },
-      {
-        selector: "typeLike",
-        format: ["PascalCase"],
-        leadingUnderscore: "forbid",
-        trailingUnderscore: "forbid",
-      },
-      {
-        selector: "typeProperty",
-        types: ["boolean"],
-        prefix: booleanPrefixes,
-        format: ["PascalCase"],
-        leadingUnderscore: "forbid",
-        trailingUnderscore: "forbid",
-      },
-      {
-        selector: "memberLike",
-        modifiers: ["private"],
-        format: ["camelCase"],
-        leadingUnderscore: "require",
-      },
-    ],
-    "no-restricted-syntax": [
-      "error",
-      {
-        selector: "TSEnumDeclaration",
-        message:
-          "Enums are not allowed. Consider using an object or a map instead.",
-      },
-    ],
-
     // React rules
+    // FIXME: why did i set this rule
     "react/button-has-type": [
       "error",
       {
         reset: false,
-        submit: false,
+        // submit: false,
       },
     ],
     "react/destructuring-assignment": ["error", "always"],
 
-    // Annoyinh when working with Vite
+    // annoying when working with Vite
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "react/function-component-definition": [
@@ -348,7 +161,7 @@ const config = {
     // Markers needed for ts <reference>
     "spaced-comment": ["error", "always", { markers: ["/"] }],
     "symbol-description": "error",
-    yoda: ["error", { exceptRange: true }],
+    yoda: ["error", "never", { exceptRange: true }],
 
     quotes: ["error", "double"],
     semi: ["error", "always"],
