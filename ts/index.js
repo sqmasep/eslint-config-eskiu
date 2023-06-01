@@ -132,6 +132,16 @@ const config = {
     "@typescript-eslint/require-await": "error",
     "@typescript-eslint/prefer-ts-expect-error": "error",
 
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        checksVoidReturn: {
+          arguments: false,
+          attributes: false,
+        },
+      },
+    ],
+
     // TODO Getting deep into naming convention to be more strict on every type
     "@typescript-eslint/naming-convention": [
       "error",

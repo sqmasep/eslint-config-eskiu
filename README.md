@@ -1,6 +1,6 @@
 # sq's ESLint config
 
-No warn are used. All rules are set with `error` parameter. For now, only `eskiu/ts-react` is available
+No warn are used. All rules are set with `error` parameter. For now, only `eskiu/ts` and `eskiu/ts-react` are available
 
 ## Installation
 
