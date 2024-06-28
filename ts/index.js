@@ -1,5 +1,3 @@
-const path = require("path");
-
 const booleanPrefixes = ["is", "should", "has", "can", "did", "will"];
 
 /** @type {import("eslint").Linter.Config} */
@@ -208,7 +206,7 @@ const config = {
     // ESLint rules
     "no-constant-binary-expression": "error",
     "no-constructor-return": "error",
-    "no-duplicate-imports": "error",
+    "no-duplicate-imports": "off",
     "no-await-in-loop": "error",
     "no-promise-executor-return": "error",
     "no-self-compare": "error",
@@ -269,7 +267,7 @@ const config = {
     "prefer-rest-params": "error",
     "prefer-spread": "error",
     "prefer-template": "error",
-    "quote-props": ["error", "consistent-as-needed"],
+    "quote-props": "off",
     radix: ["error", "as-needed"],
     // Markers needed for ts <reference>
     "spaced-comment": ["error", "always", { markers: ["/"] }],
