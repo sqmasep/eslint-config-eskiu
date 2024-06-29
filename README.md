@@ -58,5 +58,4 @@ I'm only getting started with ESLint, there are probably rules i havent set yet 
 
 ## TODO
 
-- [] https://www.npmjs.com/package/eslint-plugin-mui-path-imports
 - [] installing `eslint-config-eskiu` installs every peerDeps although you might not want to use react
